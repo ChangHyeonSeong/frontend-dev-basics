@@ -42,6 +42,7 @@ console.log(a);
 a.insert(2, ['a','b','c']); //기대: [1, 2, 'a', 'b', 'c', 3]
 console.log(a);             //결과: [1, 2, ['a', 'b', 'c'], 3]
 
+
 var f = function(param) {
     console.log(this.name + ":" + param);
 }
