@@ -12,7 +12,7 @@ Array.prototype.insert = function(index, value) {
         // console.log("this : " + this);
         // var _this = this; 
         // value.forEach(function(e){
-        //     _this.splice(index++, 0, e);// closer _this 변수 범위가 이함수 블록으로 바뀐다
+        //     _this.splice(index++, 0, e);//  _this 변수 범위가 이함수 블록으로 바뀐다
         // });
 
         value.forEach(function(e){
