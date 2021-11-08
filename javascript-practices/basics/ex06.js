@@ -54,7 +54,7 @@ console.log(o3);
 //XmlHttpRequest 호스트(브라우져) 객체를 사용해서 통신(AJAX)에서 데이터 교환의 포맷으로 JSON을 사용한다.
 var response = '{name: "둘리", age:10, email:"dooly@gmail.com"}';
 
-var userVo = eval("(" +  response + ")"); //eval string to object ??
+var userVo = eval("(" +  response + ")"); //eval string to code
 
 console.log(userVo, typeof(userVo));
 
