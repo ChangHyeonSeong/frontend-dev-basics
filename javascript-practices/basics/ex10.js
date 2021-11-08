@@ -52,7 +52,7 @@ o5 = {};
 o5[0] = 0;
 o5["1"] = 1;
 o5["name"] = "둘리";
-o5.length = 3;
+o5.length = 2;
 console.log(o5["0"], o5[1], o5.length);// 일반객체는 length가 없다
 for(prop in o5){
     console.log(prop);
