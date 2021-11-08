@@ -8,7 +8,7 @@ Array.prototype.insert = function(index, value) {
         //     this.splice(index++, 0, value[i]);
         // }
 
-        // // closer사용
+        // // closure사용
         // console.log("this : " + this);
         // var _this = this; 
         // value.forEach(function(e){
