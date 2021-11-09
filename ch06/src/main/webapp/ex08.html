@@ -22,10 +22,13 @@
 	imgElement.style.width = "200px";
 	imgElement.alt = "개굴~";
 	imgElement.title = "개굴개굴!!!!";
-	imgElement['data-no'] = 10; /* 비표준 속성 */
+	imgElement['data-no'] = 10;  //프로퍼티에 셋팅 
+	imgElement.setAttribute('data-no', 10);/* 비표준 속성(property X) */
 	
 	setTimeout(function(){
 		document.body.appendChild(imgElement);
+		console.log(imgElement['data-no']);
+		console.log(imgElement.getAttribute('data-no'));
 	}, 3000);
  });
 </script>
