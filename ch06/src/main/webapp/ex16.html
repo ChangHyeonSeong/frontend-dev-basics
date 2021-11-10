@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+/*
+Event Propagation(Event Bubbling)
+특정 이벤트가 발생했을 때 그 이벤트가 상위/하위 엘리먼트로 전파되어 가는 것
+IE8이하버젼 <= IE8: outer-div > inner-div > header > text 하위
+standard others: outer-div < inner-div < header < text 상위
+ */
+window.addEventListener("load", function(){
+	document
+		.getElementById('outer-div')
+		.addEventListener('click', function(){
+			console.log('outer-div');
+		});
+	
+	document
+		.getElementById('inner-div')
+		.addEventListener('click', function(e){
+			var event = e || window.event /* <= ie8 */
+
+
+			// prevent event's propagation(bubbling)
+			//event.cancelBubble = true; /* <= ie8 동적으로 속성을 추가할 수 있으므로 에러가 나지 않는다*/
+			//event.stopPropagation && event.stopPropagation() /* standard other browser 함수가 있는지 &&로 확인하고 실행*/
+
+			console.log('inner-div');
+		});
+	
+	document
+		.getElementById('header')
+		.addEventListener('click', function(){
+			console.log('header');
+		});
+});
+</script>
+<body>
+	<h1>DOM(Document Object Model)</h1>
+	<h2>6. 기본(default) Event Handler 동작 막기 - 2. form: DOM Event Model Level0</h2>
+	
+	<div id='outer-div'>
+		<div id='inner-div'>
+			<h1 id='header'>
+				<span id='text'>text</span>
+			</h1>
+		</div>
+	</div>
+</body>
+
+</html>

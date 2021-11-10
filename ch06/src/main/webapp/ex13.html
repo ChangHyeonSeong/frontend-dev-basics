@@ -7,14 +7,13 @@
 <script>
 /*
  기본 이벤트 핸들러 동작 막기
- // form: validation
- // anchor: 버튼이나 메뉴로 사용하는 경우 click event
+ // 1. anchor: 버튼이나 메뉴로 사용하는 경우 click event
  */
  window.addEventListener("load", function(){
 	document
 		.getElementById("btn-delete")
 		.addEventListener("click", function(event){
-			event.preventDefault();                   //사전 이벤트 막기 여기서는 href속성 이벤트 막기
+			event.preventDefault();                   //사전 이벤트 막기 여기서는 <a>태그 기본 이벤트 막기
 			console.log("비밀번호 입력 다이알로그 띄우기");
 		});
 });
