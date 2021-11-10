@@ -25,8 +25,8 @@ window.addEventListener("load", function(){
 
 
 			// prevent event's propagation(bubbling)
-			//event.cancelBubble = true; /* <= ie8 동적으로 속성을 추가할 수 있으므로 에러가 나지 않는다*/
-			//event.stopPropagation && event.stopPropagation() /* standard other browser 함수가 있는지 &&로 확인하고 실행*/
+			event.cancelBubble = true; /* <= ie8 동적으로 속성을 추가할 수 있으므로 에러가 나지 않는다*/
+			event.stopPropagation && event.stopPropagation() /* standard other browser 함수가 있는지 &&로 확인하고 실행*/
 
 			console.log('inner-div');
 		});
