@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+/*
+ 기본 이벤트 핸들러 동작 막기
+ // form: validation
+ // anchor: 버튼이나 메뉴로 사용하는 경우 click event
+ */
+ window.addEventListener("load", function(){
+	document
+		.getElementById("btn-delete")
+		.addEventListener("click", function(event){
+			event.preventDefault();                   //사전 이벤트 막기 여기서는 href속성 이벤트 막기
+			console.log("비밀번호 입력 다이알로그 띄우기");
+		});
+});
+</script>
+<body>
+	<h1>DOM(Document Object Model)</h1>
+	<h2>6. 기본(default) Event Handler 동작 막기</h2>
+	
+	<a href="" id="btn-delete">삭제</a>
+</body>
+
+</html>
