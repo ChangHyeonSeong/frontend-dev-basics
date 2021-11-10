@@ -2,26 +2,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<!-- 개별소스버젼(서비스 서버 호스팅) -->
+<script type="text/javascript" src="./jquery/jquery-simple.js"></script>
+
 <script>
-$(function() {
+$(function(){
+	console.log('load!');
+	
 	var $obj = $(".par");
 	$obj.click(function(){
-		console.log("clicked:" + this); // 이벤트핸들러 안에서 this는  Element이다
+		console.log("clicked:" + this);  // 이벤트핸들러 안에서 this는  Element이다
 	});
 	
 	setTimeout(function(){
 		$obj.css('color', 'red');
 	}, 2000);
+	
+	setTimeout(function(){
+		$("p").css('font-weight', 'bold');
+	}, 4000);
+
 });
 </script>
 </head>
 <body>
 	<h1 id="header">Simple jQuery 만들기1</h1>
-	
 	<p class='par'>문장1</p>
 	<p>문장2</p>
-	<p  class='par'>문장3</p>
+	<p class='par'>문장3</p>
 	<p>문장4</p>
 </body>
 </html>
