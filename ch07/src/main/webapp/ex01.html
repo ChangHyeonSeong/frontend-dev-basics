@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- 개별소스버젼(서비스 서버 호스팅) -->
+<!-- <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script> -->
+
+<!-- 개별압축소스버젼(서비스 서버 호스팅) -->
+<!-- <script type="text/javascript" src="./jquery/jquery-3.6.0.min.js"></script> -->
+
+<!-- 개별압축버젼(CDN) -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+var $obj1 = jQuery(); //절대 null를 리턴하지 않는다 
+console.log(typeof(jQuery),typeof($obj1), $obj1.jquery);  //-> 결과 function object 3.6.0
+
+var $obj2 = $(); //alias jQuery -> $
+console.log(typeof($),typeof($obj2), $obj2.jquery);
+</script>
+</head>
+<body>
+	<h1>jQuery 로딩</h1>
+</body>
+</html>
+ 
