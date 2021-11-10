@@ -25,12 +25,26 @@ var images = [
 ];
 
 $(function(){
-	$("#btn-change").click(function(){
-		// 랜덤 변수 
-		var result = Math.floor(Math.random() * images.length);  // 0 ~ 7
-		console.log(result);
+	var changeImg = function(){
+			// 랜덤 변수
+			var result = Math.floor(Math.random() * images.length);  // 0 ~ 7
+			console.log(result);
 
-		
+			$("img")
+				.attr({
+					src: "images/" + images[result].split(':')[1],
+					alt: images[result].split(':')[0]
+				});
+		};
+
+	$("#btn-change").click(function(){
+		changeImg();
+	});
+
+	$("#btn-slideshow").click(function(){
+		setInterval(function(){
+			changeImg();
+		}, 1000);
 	});
 });
 </script>
