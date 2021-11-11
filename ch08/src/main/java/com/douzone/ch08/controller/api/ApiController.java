@@ -1,9 +1,13 @@
 package com.douzone.ch08.controller.api;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.douzone.ch08.controller.dto.JsonResult;
+import com.douzone.ch08.controller.dto.XmlResult;
 import com.douzone.ch08.controller.vo.GuestbookVo;
 
 @Controller
@@ -16,20 +20,52 @@ public class ApiController {
 		return "Text 데이타";
 	}
 	
+	@ResponseBody
 	@RequestMapping("/html")
 	public String html() {
-		return "html";
+		return "<h1>HTML 데이터</h1><p>p 태그</p>";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/xml")
 	public Object xml() {
+		XmlResult.GuestbookVo vo = new XmlResult.GuestbookVo();
+		vo.setNo(1L);
+		vo.setName("둘리");
+		vo.setMessage("호이~");
+		
+		return XmlResult.success(vo);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/json", method=RequestMethod.GET)
+	public Object json() {
 		GuestbookVo vo = new GuestbookVo();
 		vo.setNo(1L);
 		vo.setName("둘리");
 		vo.setMessage("호이~");
 		
-		return vo;
+		return JsonResult.success(vo);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/json01", method=RequestMethod.POST)
+	public Object post01(GuestbookVo vo) {
+		//service -> repository : db insert 성공한 후,
+		vo.setNo(1L);
+		vo.setPassword("");
+		
+		return JsonResult.success(vo);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/json02", method=RequestMethod.POST)
+	public Object post02(@RequestBody GuestbookVo vo) {  //@RequestBody -> json을 객체로 바꿔줌
+		//service -> repository : db insert 성공한 후,
+		vo.setNo(1L);
+		vo.setPassword("");
+		
+		return JsonResult.success(vo);
 	}
 	
 }
