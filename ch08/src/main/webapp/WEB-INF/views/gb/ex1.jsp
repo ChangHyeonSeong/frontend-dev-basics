@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/ejs/ejs.js"></script>
 <script>
 var render = function(vo) {
 	var html = 
@@ -19,6 +20,11 @@ var render = function(vo) {
 	    "</li>";
 	return html;
 }
+
+var listItemEJS = new EJS({
+	url: '${pageContext.request.contextPath }/ejs/listitem-template.ejs'   //동기로 통신된다
+});
+
 $(function(){
 	$("#add-form").submit(function(event){
 		event.preventDefault();
@@ -33,7 +39,7 @@ $(function(){
 		
 		$.ajax({
 			url: '${pageContext.request.contextPath }/api/guestbook/add',
-			type: 'post'
+			type: 'post',
 			dataType: 'json',
 			contentType: 'application/json',
 			data: JSON.stringify(vo),
@@ -44,7 +50,8 @@ $(function(){
 					return;
 				}
 				
-				var html = render(response.data);
+				//var html = render(response.data);
+				var html = listItemEJS.render(response.data);
 				$('#list-guestbook').prepend(html);
 				$("#add-form")[0].reset();     //elemets.reset();
 			},
