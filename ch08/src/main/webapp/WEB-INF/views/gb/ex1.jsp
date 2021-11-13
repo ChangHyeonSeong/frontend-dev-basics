@@ -58,8 +58,6 @@ $(function(){
 			error: function(xhr, code, message){   // 통신에러, 여기서는 톰캣이 무조건 에러 페이지를 보내므로 올일이 거의 없다
 				console.error(message);
 			}
-			
-			
 		});
 	});
 });
